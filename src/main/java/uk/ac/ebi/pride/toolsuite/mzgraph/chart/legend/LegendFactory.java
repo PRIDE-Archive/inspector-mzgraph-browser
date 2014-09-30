@@ -1,7 +1,7 @@
 package uk.ac.ebi.pride.toolsuite.mzgraph.chart.legend;
 
 import org.jfree.chart.title.LegendTitle;
-import uk.ac.ebi.pride.utilities.data.Tuple;
+import uk.ac.ebi.pride.utilities.util.Tuple;
 
 import java.awt.*;
 import java.util.Map;

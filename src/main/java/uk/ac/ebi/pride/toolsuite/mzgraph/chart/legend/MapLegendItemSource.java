@@ -3,7 +3,7 @@ package uk.ac.ebi.pride.toolsuite.mzgraph.chart.legend;
 import org.jfree.chart.LegendItem;
 import org.jfree.chart.LegendItemCollection;
 import org.jfree.chart.LegendItemSource;
-import uk.ac.ebi.pride.utilities.data.Tuple;
+import uk.ac.ebi.pride.utilities.util.Tuple;
 
 import java.awt.*;
 import java.util.Map;

@@ -15,7 +15,7 @@ import org.jfree.ui.RectangleInsets;
 import org.jfree.ui.TextAnchor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import uk.ac.ebi.pride.utilities.data.Tuple;
+import uk.ac.ebi.pride.utilities.util.Tuple;
 import uk.ac.ebi.pride.toolsuite.gui.io.FileExtension;
 import uk.ac.ebi.pride.toolsuite.gui.io.SaveComponentUtils;
 import uk.ac.ebi.pride.toolsuite.gui.io.SaveImageDialog;
