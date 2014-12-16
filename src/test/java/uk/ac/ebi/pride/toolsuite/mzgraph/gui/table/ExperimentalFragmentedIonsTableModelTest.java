@@ -56,6 +56,12 @@ public class ExperimentalFragmentedIonsTableModelTest {
         return matchedData;
     }
 
+    @Test
+    public void testgenerateMatachedData(){
+        Double[][] values = generateMatchedData();
+
+    }
+
     private List<IonAnnotation> toList(IonAnnotation[][] matrix) {
         List<IonAnnotation> annotationList = new ArrayList<IonAnnotation>();
 

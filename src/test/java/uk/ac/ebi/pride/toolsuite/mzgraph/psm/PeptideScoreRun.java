@@ -1,9 +1,9 @@
 package uk.ac.ebi.pride.toolsuite.mzgraph.psm;
 
-import uk.ac.ebi.pride.data.controller.impl.ControllerImpl.PrideXmlControllerImpl;
-import uk.ac.ebi.pride.data.core.CvParam;
-import uk.ac.ebi.pride.data.core.Protein;
-import uk.ac.ebi.pride.data.core.Spectrum;
+import uk.ac.ebi.pride.utilities.data.controller.impl.ControllerImpl.PrideXmlControllerImpl;
+import uk.ac.ebi.pride.utilities.data.core.CvParam;
+import uk.ac.ebi.pride.utilities.data.core.Protein;
+import uk.ac.ebi.pride.utilities.data.core.Spectrum;
 import uk.ac.ebi.pride.utilities.iongen.model.PeakSet;
 import uk.ac.ebi.pride.utilities.iongen.model.PeptideScore;
 import uk.ac.ebi.pride.utilities.iongen.model.PrecursorIon;
@@ -26,7 +26,7 @@ import java.util.List;
 public class PeptideScoreRun {
     private double[] weightList = {0.25, 0.25, 0.5, 0.5, 0.75, 1, 0.75, 0.5, 0.5, 0.25};
 
-    private double getScore(uk.ac.ebi.pride.data.core.Peptide peptide, Spectrum spectrum) {
+    private double getScore(uk.ac.ebi.pride.utilities.data.core.Peptide peptide, Spectrum spectrum) {
         Peptide newPeptide = PSMTestUtils.toPeptide(peptide);
         int charge = 0;
         try {
@@ -73,7 +73,7 @@ public class PeptideScoreRun {
         List<Double> result = new ArrayList<Double>();
         for (int i = 0; i < controller.getProteinIds().size(); i++) {
             protein = controller.getProteinById(i);
-            for (uk.ac.ebi.pride.data.core.Peptide peptide : protein.getPeptides()) {
+            for (uk.ac.ebi.pride.utilities.data.core.Peptide peptide : protein.getPeptides()) {
                 spectrum = peptide.getSpectrum();
                 result.add(getScore(peptide, spectrum));
                 count++;
@@ -91,15 +91,15 @@ public class PeptideScoreRun {
         controller.close();
     }
 
-    private Double getDeltaMass(uk.ac.ebi.pride.data.core.Peptide peptide) {
+    private Double getDeltaMass(uk.ac.ebi.pride.utilities.data.core.Peptide peptide) {
         String sequence = peptide.getSequence();
         int charge = peptide.getSpectrumIdentification().getChargeState();
         double mz = peptide.getPrecursorMz();
 
-        java.util.List<uk.ac.ebi.pride.data.core.Modification> mods = peptide.getModifications();
+        java.util.List<uk.ac.ebi.pride.utilities.data.core.Modification> mods = peptide.getModifications();
 
         java.util.List<Double> ptmMasses = new ArrayList<Double>();
-        for (uk.ac.ebi.pride.data.core.Modification mod : mods) {
+        for (uk.ac.ebi.pride.utilities.data.core.Modification mod : mods) {
             java.util.List<Double> monoMasses = mod.getMonoisotopicMassDelta();
             if (monoMasses != null && !monoMasses.isEmpty()) {
                 ptmMasses.add(monoMasses.get(0));
@@ -125,7 +125,7 @@ public class PeptideScoreRun {
         int count = 0;
         for (int i = 0; i < controller.getProteinIds().size(); i++) {
             protein = controller.getProteinById(i);
-            for (uk.ac.ebi.pride.data.core.Peptide peptide : protein.getPeptides()) {
+            for (uk.ac.ebi.pride.utilities.data.core.Peptide peptide : protein.getPeptides()) {
                 spectrum = peptide.getSpectrum();
                 writer.write(getDeltaMass(peptide) + "\t" + getScore(peptide, spectrum) + ret);
                 count++;

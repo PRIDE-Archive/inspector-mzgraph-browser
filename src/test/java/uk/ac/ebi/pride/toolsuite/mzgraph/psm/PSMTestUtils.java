@@ -1,7 +1,7 @@
 package uk.ac.ebi.pride.toolsuite.mzgraph.psm;
 
-import uk.ac.ebi.pride.data.core.FragmentIon;
-import uk.ac.ebi.pride.data.core.Modification;
+import uk.ac.ebi.pride.utilities.data.core.FragmentIon;
+import uk.ac.ebi.pride.utilities.data.core.Modification;
 import uk.ac.ebi.pride.utilities.mol.NeutralLoss;
 import uk.ac.ebi.pride.utilities.mol.PTModification;
 import uk.ac.ebi.pride.utilities.mol.Peptide;
@@ -23,7 +23,7 @@ import java.util.Set;
  * Date: 10/12/12
  */
 public class PSMTestUtils {
-    public static Peptide toPeptide(uk.ac.ebi.pride.data.core.Peptide oldPeptide) {
+    public static Peptide toPeptide(uk.ac.ebi.pride.utilities.data.core.Peptide oldPeptide) {
         String sequence = oldPeptide.getSequence();
         List<Modification> oldModifications = oldPeptide.getModifications();
 
@@ -36,7 +36,7 @@ public class PSMTestUtils {
         List<Double> monoMassDeltas;
         List<Double> avgMassDeltas;
         int position;
-        for (uk.ac.ebi.pride.data.core.Modification oldModification : oldModifications) {
+        for (uk.ac.ebi.pride.utilities.data.core.Modification oldModification : oldModifications) {
             name = oldModification.getName();
             label = "111";
             monoMassDeltas = oldModification.getMonoisotopicMassDelta();

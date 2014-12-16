@@ -1,10 +1,10 @@
 package uk.ac.ebi.pride.toolsuite.mzgraph.psm;
 
-import uk.ac.ebi.pride.data.controller.impl.ControllerImpl.PrideXmlControllerImpl;
-import uk.ac.ebi.pride.data.core.CvParam;
-import uk.ac.ebi.pride.data.core.FragmentIon;
-import uk.ac.ebi.pride.data.core.Protein;
-import uk.ac.ebi.pride.data.core.Spectrum;
+import uk.ac.ebi.pride.utilities.data.controller.impl.ControllerImpl.PrideXmlControllerImpl;
+import uk.ac.ebi.pride.utilities.data.core.CvParam;
+import uk.ac.ebi.pride.utilities.data.core.FragmentIon;
+import uk.ac.ebi.pride.utilities.data.core.Protein;
+import uk.ac.ebi.pride.utilities.data.core.Spectrum;
 import uk.ac.ebi.pride.utilities.iongen.model.PrecursorIon;
 import uk.ac.ebi.pride.utilities.iongen.impl.DefaultPrecursorIon;
 import uk.ac.ebi.pride.utilities.mol.Peptide;
@@ -27,7 +27,7 @@ import java.util.List;
  */
 
 public class PSMRun {
-    private List<IonAnnotation> getAutoAnnotationList(uk.ac.ebi.pride.data.core.Peptide peptide, Spectrum spectrum) {
+    private List<IonAnnotation> getAutoAnnotationList(uk.ac.ebi.pride.utilities.data.core.Peptide peptide, Spectrum spectrum) {
         Peptide newPeptide = PSMTestUtils.toPeptide(peptide);
         int charge = 0;
         try {
@@ -57,7 +57,7 @@ public class PSMRun {
         return tableModel.getAutoAnnotations();
     }
 
-    private List<IonAnnotation> getManualAnnotationList(uk.ac.ebi.pride.data.core.Peptide peptide) {
+    private List<IonAnnotation> getManualAnnotationList(uk.ac.ebi.pride.utilities.data.core.Peptide peptide) {
         List<FragmentIon> ions = peptide.getFragmentation();
         List<IonAnnotation> annotationList = PSMTestUtils.convertToIonAnnotations(ions);
 
@@ -92,7 +92,7 @@ public class PSMRun {
         List<Double> result = new ArrayList<Double>();
         for (int i = 0; i < controller.getProteinIds().size(); i++) {
             protein = controller.getProteinById(i);
-            for (uk.ac.ebi.pride.data.core.Peptide peptide : protein.getPeptides()) {
+            for (uk.ac.ebi.pride.utilities.data.core.Peptide peptide : protein.getPeptides()) {
                 spectrum = peptide.getSpectrum();
                 count++;
                 List<IonAnnotation> autoList = test.getAutoAnnotationList(peptide, spectrum);

@@ -10,6 +10,7 @@ import org.jfree.data.xy.XYDataItem;
  * Time: 19:27:17
  */
 public class IonAnnotation extends XYDataItem implements PeakAnnotation {
+
     private Number mz;
     private Number intensity;
     private IonAnnotationInfo info;
