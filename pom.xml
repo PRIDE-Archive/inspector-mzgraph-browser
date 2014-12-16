@@ -12,12 +12,6 @@
     <dependencies>
         <!-- use ms-data-core-api package to create test set. -->
         <dependency>
-            <groupId>uk.ac.ebi.pride</groupId>
-            <artifactId>ms-data-core-api</artifactId>
-            <version>0.11.28-SNAPSHOT</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
             <version>4.8.2</version>
