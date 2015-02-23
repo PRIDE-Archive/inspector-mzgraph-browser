@@ -70,7 +70,7 @@ public class SpectrumChartPanelRun {
 //        ionInfo1.addItem(annotationItem2);
 //        IonAnnotation ion2 = new IonAnnotation(2.012312313, 4.345345345, ionInfo2);
 //
-//        java.util.List<IonAnnotation> ions = new ArrayList<IonAnnotation>();
+//        java.utils.List<IonAnnotation> ions = new ArrayList<IonAnnotation>();
 //        ions.add(ion1);
 //        ions.add(ion2);
 //        chartPanel.addAllManualAnnotations(ions);

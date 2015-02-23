@@ -78,7 +78,7 @@ public class SpectrumBrowserRun {
 //        ionInfo3.addItem(annotationItem4);
 //        IonAnnotation ion3 = new IonAnnotation(3.012312313, 7.345345345, ionInfo3);
 //
-//        java.util.List<IonAnnotation> ions = new ArrayList<IonAnnotation>();
+//        java.utils.List<IonAnnotation> ions = new ArrayList<IonAnnotation>();
 //        ions.add(ion1);
 //        ions.add(ion2);
 //        ions.add(ion3);

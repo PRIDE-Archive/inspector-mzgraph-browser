@@ -258,58 +258,11 @@ public class testingFrangmentIonScore {
         return result;
     }
 
-    /**
-     * Convert fragment ion.
-     *
-     * @param ion fragment ion.
-     * @return IonAnnotation    ion annotation.
-     */
-    public static IonAnnotation getIonAnnotation(FragmentIon ion) {
-        // get the fragment ion type
-        FragmentIonType ionType = getIonType(ion);
 
-        // get the fragment loss
-        NeutralLoss fragLoss = FragmentIonUtilities.getFragmentIonNeutralLoss(ion.getIonType());
-        IonAnnotationInfo ionInfo = new IonAnnotationInfo();
-        ionInfo.addItem(ion.getCharge(), ionType, ion.getLocation(), fragLoss);
-        return new IonAnnotation(ion.getMz(), ion.getIntensity(), ionInfo);
-    }
 
     public static FragmentIonType getIonType(FragmentIon ion) {
         return FragmentIonUtilities.getFragmentIonType(ion.getIonType());
     }
-
-    public static Map<Integer, List<PTModification>> createModificationMap(List<Modification> mods, int peptideLength) {
-        Map<Integer, List<PTModification>> modMap
-                = new HashMap<Integer, List<PTModification>>();
-        for (uk.ac.ebi.pride.utilities.data.core.Modification mod : mods) {
-            int location = mod.getLocation();
-            // merge the N-terminus modification to the first amino acid
-            location = location == 0 ? 1 : location;
-            // merge the C-terminus modification to the last amino acid
-            location = location == peptideLength ? location - 1 : location;
-
-            List<PTModification> subMods = modMap.get(location);
-            if (subMods == null) {
-                subMods = new ArrayList<PTModification>();
-                modMap.put(mod.getLocation(), subMods);
-            }
-            subMods.add(new PTModification(mod.getName(), mod.getModDatabase(),
-                    mod.getName(), mod.getMonoisotopicMassDelta(), mod.getAvgMassDelta()));
-        }
-        return modMap;
-    }
-
-    public static List<PTModification> convertModifications(List<Modification> modifications) {
-        List<PTModification> newMods = new ArrayList<PTModification>();
-        for (Modification mod : modifications) {
-            newMods.add(new PTModification(mod.getName(), mod.getModDatabase(),
-                    mod.getName(), mod.getMonoisotopicMassDelta(), mod.getAvgMassDelta()));
-        }
-        return newMods;
-    }
-
-
 
     private double getScore(uk.ac.ebi.pride.utilities.data.core.Peptide peptide, uk.ac.ebi.pride.utilities.data.core.Spectrum spectrum) {
         uk.ac.ebi.pride.utilities.mol.Peptide newPeptide = PSMTestUtils.toPeptide(peptide);
@@ -366,7 +319,7 @@ public class testingFrangmentIonScore {
 
         long start = new Date().getTime();
 
-        BufferedWriter writer = new BufferedWriter(new FileWriter(new File("test.csv")));
+        BufferedWriter writer = new BufferedWriter(new FileWriter(new File("test-PXD682.csv")));
         Set<CvParam> ptms = new HashSet<CvParam>();
         Set<String> peptideSequences = new HashSet<String>();
         Set<Comparable> spectrumIds = new HashSet<Comparable>();

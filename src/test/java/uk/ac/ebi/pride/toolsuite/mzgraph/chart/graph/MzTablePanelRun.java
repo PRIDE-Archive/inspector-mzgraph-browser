@@ -27,7 +27,7 @@ public class MzTablePanelRun {
 //        panel.setCalculate(false);
 //        ExperimentalFragmentedIonsTable table = new ExperimentalFragmentedIonsTable(precursorIon, ProductIonPair.B_Y);
 //        panel.setTable(table);
-//        java.util.List<IonAnnotation> annotationList = ExampleUtil.generateAnnotationList();
+//        java.utils.List<IonAnnotation> annotationList = ExampleUtil.generateAnnotationList();
 //        panel.addAllManualAnnotations(annotationList);
 
         // case 3: some data from pride database.
