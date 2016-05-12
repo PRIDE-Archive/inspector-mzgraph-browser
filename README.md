@@ -135,8 +135,8 @@ IonAnnotation bIon = new IonAnnotation(12.23, 18.34, bIonInfo);
 
 // Add these ions to the spectrum
 List<IonAnnotation> ions = new ArrayList<IonAnnotation>();
-ions.add(ion1);
-ions.add(ion2);
+ions.add(yIon);
+ions.add(bIon);
 spectrum.addFragmentIons(ions);
 ```
 
