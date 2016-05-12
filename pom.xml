@@ -4,7 +4,7 @@
 
     <groupId>uk.ac.ebi.pride.toolsuite</groupId>
     <artifactId>inspector-mzgraph-browser</artifactId>
-    <version>2.0.4</version>
+    <version>2.0.5-SNAPSHOT</version>
     <name>PRIDE Inspector MzGraph Browser</name>
     <url>http://github.com/PRIDE-Toolsuite/inspector-mzgraph-browser/</url>
 
@@ -184,7 +184,7 @@
         <connection>scm:git:github.com/PRIDE-Toolsuite/inspector-mzgraph-browser.git</connection>
         <developerConnection>scm:git:git@github.com:PRIDE-Toolsuite/inspector-mzgraph-browser.git</developerConnection>
         <url>https://github.com/PRIDE-Toolsuite/inspector-mzgraph-browser.git</url>
-        <tag>inspector-mzgraph-browser-2.0.4</tag>
+        <tag>HEAD</tag>
     </scm>
 
 </project>
